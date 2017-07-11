@@ -3,7 +3,7 @@
   "jpsType": "update",
   "build": "20170711",
   "application": {
-    "id": "Rooter",
+    "id": "nginx-amplify-agent",
     "targetNodes": {
       "nodeType": [
         "nginxphp",
@@ -38,7 +38,11 @@
             "nodeGroup": "cp",
             "commands": [
               "curl -L -O https://github.com/nginxinc/nginx-amplify-agent/raw/master/packages/install.sh",
-              "API_KEY='${settings.api_key}' sh ./install.sh"
+              "API_KEY='${settings.api_key}' sh ./install.sh",
+              "curl -fsSL 'https://raw.githubusercontent.com/noobtron/Jelastic-Amplify/master/stub_status.conf' -o /etc/nginx/conf.d/stub_status.conf",
+              "ls -la /etc/nginx/conf.d/stub_status.conf",
+              "kill -HUP 'cat /var/run/nginx.pid'",
+              "sudo service nginx restart"
             ],
             "user": "root"
           }
