@@ -49,9 +49,6 @@
         ]
     },
     "success": {
-      "text": {
-        "en": "Addon was applied"
-        },
         "text": "Addon was applied to ${env.url}",
         "email": "Addon was applied to ${env.url}"
     }
