@@ -1,0 +1,55 @@
+{
+  "jpsVersion": "0.99",
+  "jpsType": "update",
+  "build": "20170711",
+  "application": {
+    "id": "Rooter",
+    "targetNodes": {
+      "nodeType": [
+        "nginxphp",
+        "nginxphp-dockerized"
+      ]
+    },
+    "name": "Nginx Amplify Agent",
+    "version": "latest",
+    "categories": [
+      "apps/dev-and-admin-tools"
+    ],
+    "logo": "https://amplify.nginx.com/static/5.0.1/img/icon/icon_logo.svg",
+    "description": {
+      "text": "Add nginx amplify agent to your nginx server. Amplify Agent collects various metrics and metadata from the operating system and the NGINX instances, and sends the data to the Amplify backend for visualization."
+    },
+    "settings": {
+      "fields": [
+        {
+          "type": "string",
+          "name": "api_key",
+          "caption": "API key",
+          "vtype": "alphanum",
+          "vtypeText": "Alphanumeric input only.",
+          "required": true,
+          "default": "0000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "onInstall": {
+        "executeShellCommands": [
+          {
+            "nodeGroup": "cp",
+            "commands": [
+              "curl -L -O https://github.com/nginxinc/nginx-amplify-agent/raw/master/packages/install.sh",
+              "API_KEY='${settings.api_key}' sh ./install.sh"
+            ],
+            "user": "root"
+          }
+        ]
+    },
+    "success": {
+      "text": {
+        "en": "Addon was applied"
+        },
+        "text": "Addon was applied to ${env.url}",
+        "email": "Addon was applied to ${env.url}"
+    }
+  }
+}
