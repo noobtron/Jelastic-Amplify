@@ -48,6 +48,20 @@
           }
         ]
     },
+    "onUninstall": {
+        "executeShellCommands": [
+          {
+            "nodeGroup": "cp",
+            "commands": [
+              "sudo service nginx stop",
+              "yum remove nginx-amplify-agent",
+              "rm -f /etc/nginx/conf.d/stub_status.conf",
+              "sudo service nginx start"
+            ],
+            "user": "root"
+          }
+        ]
+    },
     "success": {
         "text": "Addon was applied to ${env.url}",
         "email": "Addon was applied to ${env.url}"
