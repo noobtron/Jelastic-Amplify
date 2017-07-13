@@ -7,8 +7,7 @@
     "targetNodes": {
       "nodeType": [
         "nginxphp",
-        "nginxphp-dockerized",
-        "nginx-ruby"
+        "nginxphp-dockerized"
       ]
     },
     "name": "Nginx Amplify Agent",
