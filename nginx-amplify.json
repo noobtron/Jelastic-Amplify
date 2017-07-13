@@ -42,7 +42,8 @@
               "curl -fsSL 'https://raw.githubusercontent.com/noobtron/Jelastic-Amplify/master/stub_status.conf' -o /etc/nginx/conf.d/stub_status.conf",
               "ls -la /etc/nginx/conf.d/stub_status.conf",
               "kill -HUP 'cat /var/run/nginx.pid'",
-              "sudo service nginx restart"
+              "sudo service nginx restart",
+              "chkconfig --add amplify-agent"
             ],
             "user": "root"
           }
@@ -56,6 +57,7 @@
               "sudo service nginx stop",
               "yum remove nginx-amplify-agent",
               "rm -f /etc/nginx/conf.d/stub_status.conf",
+              "chkconfig --del amplify-agent",
               "sudo service nginx start"
             ],
             "user": "root"
