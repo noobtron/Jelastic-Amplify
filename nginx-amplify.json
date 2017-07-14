@@ -10,7 +10,7 @@
         "nginxphp-dockerized"
       ]
     },
-    "name": "Nginx Amplify Agent",
+    "name": "Nginx Amplify Agent - Beta",
     "version": "latest",
     "categories": [
       "apps/dev-and-admin-tools"
