@@ -1,7 +1,7 @@
 {
   "jpsVersion": "0.99",
   "jpsType": "update",
-  "build": "20170713",
+  "build": "20170714",
   "application": {
     "id": "nginx-amplify-agent",
     "targetNodes": {
