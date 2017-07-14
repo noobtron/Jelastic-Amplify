@@ -12,6 +12,7 @@
     },
     "name": "Nginx Amplify Agent - Beta",
     "version": "latest",
+    "homepage": "https://www.nginx.com/amplify/",
     "categories": [
       "apps/dev-and-admin-tools"
     ],
