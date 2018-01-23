@@ -1,7 +1,7 @@
 {
   "jpsVersion": "0.99",
   "jpsType": "update",
-  "build": "20170718",
+  "build": "20180119",
   "application": {
     "id": "nginx-amplify-agent",
     "targetNodes": {
@@ -61,6 +61,22 @@
           }
         ]
     },
+    "buttons": [{
+      "confirmText": "Do you want to update Amplify Agent?",
+      "loadingText": "Updating...",
+      "action": "update",
+      "caption": "Update Now",
+      "successText": "Amplify Agent has been successfully updated!",
+      "executeShellCommands": [
+        {
+          "nodeGroup": "cp",
+          "commands": [
+            "yum makecache && yum update nginx-amplify-agent"
+          ],
+          "user": "root"
+        }
+      ]
+    }],
     "success": {
         "text": "Addon was applied to ${env.url}",
         "email": "Addon was applied to ${env.url}"
