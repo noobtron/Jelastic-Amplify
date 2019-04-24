@@ -1,0 +1,61 @@
+{
+  "jpsVersion": "0.99",
+  "jpsType": "update",
+  "build": "20190424",
+  "application": {
+    "id": "s3cmd-cli",
+    "name": "s3cmd-cli beta",
+    "version": "latest",
+    "homepage": "https://s3tools.org/s3cmd",
+    "categories": [
+      "apps/dev-and-admin-tools"
+    ],
+    "description": {
+      "text": "Add s3cmd-cli to your container"
+    },
+    "settings": {
+    },
+    "onInstall": {
+        "executeShellCommands": [
+          {
+            "nodeGroup": "storage",
+            "commands": [
+              "yum install -y s3cmd"
+            ],
+            "user": "root"
+          }
+        ]
+    },
+    "onUninstall": {
+        "executeShellCommands": [
+          {
+            "nodeGroup": "storage",
+            "commands": [
+              "yum remove - ys3cmd"
+            ],
+            "user": "root"
+          }
+        ]
+    },
+    "buttons": [{
+      "confirmText": "Do you want to update s3cmd-cli",
+      "loadingText": "Updating...",
+      "action": "update",
+      "caption": "Update Now",
+      "successText": "s3cmd-cli has been successfully updated!",
+      "executeShellCommands": [
+        {
+          "nodeGroup": "storage",
+          "commands": [
+            "yum makecache && yum update s3cmd"
+          ],
+          "user": "root"
+        }
+      ]
+    }],
+    "success": {
+        "text": "Addon was applied to ${env.url}",
+        "email": "Addon was applied to ${env.url}"
+    }
+  }
+}
